@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title> Game Page </title>
+</head>
+<body>
+    
+    <div id="gameDiv" style="display: flex; justify-content: center;" >
+        <div class="card mt-lg-5" style="width: 18rem; text-align: start; border: 2px solid black; box-shadow: 0px 15px 20px rgba(0,0,0,0.1);"> 
+            <div class="card-body">
+                <form action="{% url 'game' %}" method="POST">
+                    {% csrf_token %}
+                    <!-- Hidden Field for passing username that user has entered to from one page to another -->
+                    <input type="hidden" name="qno" value="Q2">
+                    <input type="hidden" name="username" value={{ name }}>
+                    <label for="firstquestion" name="question2" class="card-title"> Who is the best cricketer in the world? </label>
+                    <input type="radio" id="op1" name="bestCricketer" value="SachinTendulkar">
+                    <label for="bestCricketer"> Sachin Tendulkar </label><br>
+                    <input type="radio" id="op2" name="bestCricketer" value="ViratKohli">
+                    <label for="bestCricketer"> Virat Kohli </label><br>
+                    <input type="radio" id="op3" name="bestCricketer" value="AdamGilchirst">
+                    <label for="bestCricketer"> Adam Gilchirst </label><br><br>
+                    <input type="radio" id="op4" name="bestCricketer" value="JacquesKallis">
+                    <label for="bestCricketer"> Jacques Kallis </label><br><br>
+                    <input type="submit" class="btn btn-outline-primary" value="Next">
+
+                </form>
+            </div>
+          </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title> Game Page </title>
+</head>
+<body>
+    
+    <div id="gameDiv" style="display: flex; justify-content: center;" >
+        <div class="card mt-lg-5" style="width: 18rem; text-align: start; border: 2px solid black; box-shadow: 0px 15px 20px rgba(0,0,0,0.1);"> 
+            <div class="card-body">
+                <form action="{% url 'game' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="qno" value="Q3">
+                    <input type="hidden" name="username" value={{ name }}>
+                    <input type="hidden" name="answer1" value={{ ans1 }}>
+                    <label for="firstquestion" name="question3" class="card-title"> What are the colors in the Indian national flag? </label>
+                    <input type="checkbox" id="op1" name="flagColor" value="White">
+                    <label for="op1" > White </label><br>
+                    <input type="checkbox" id="op2" name="flagColor" value="Yellow">
+                    <label for="op2" > Yellow </label><br>
+                    <input type="checkbox" id="op3" name="flagColor" value="Orange">
+                    <label for="op3" > Orange </label><br><br>
+                    <input type="checkbox" id="op4" name="flagColor" value="Green">
+                    <label for="op4" > Green </label><br><br>
+                    <input type="submit" class="btn btn-outline-primary" value="Next">
+
+                </form>
+            </div>
+          </div>
+    </div>
+
+</body>
+</html>
